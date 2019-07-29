@@ -34,3 +34,5 @@ However, none of the currently used methods directly solves these problems:
 * It might be hard to find personal friends who took the course before;
 * Reddit contains a lot of information and posts which are irrelevant, and useful reviews are scattered and hard to discover;
 * The quality of a course remains consistent while the professor for that course changes frequently, hence using the rating for professors as a metric to measure course quality is inaccurate.
+
+123
