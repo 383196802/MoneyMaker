@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+ 	<meta charset="utf-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/about.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+ </head>
+
+ <body>
+ 	<div id="header">
+ 		<div class="navbar-header">
+			 <img alt="logo" class="logo-nav clickable" src="images/logo.png" id="logo" onclick="window.location = '/course-list'">
+		</div>
+		<div class="navbar-header flex-child">
+			<h4 class="navbar-text">Course Copilot</h4>
+		</div>
+ 		<div class="nav navbar-nav navbar-right navbar-buttons">
+			<a class="btn btn-primary" onclick="window.location = '/course-list'">Home</a>
+			<a class="btn btn-primary" href="https://acorn.utoronto.ca/" target="_blank">Acorn</a>
+			<a class="btn btn-primary" href="https://q.utoronto.ca/" target="_blank">Quercus</a>
+			<a class="btn btn-primary" href="#">Other</a>
+		</div>
+ 	</div>
+ 	<div id="banner">
+ 		<img class="bannerPic" src="images/banner.png">
+ 	</div>
+ 	<div id="container">
+ 		<div id="about">
+ 			<h2>About Us</h2>
+ 			<p>
+ 				This is a course rating and review database platform, especially for the University of Toronto.
+ 				<br><br>
+				Key features of our platform include:
+				<br><br>
+				A detailed page for each course in the university, where you can view and contribute rating (from 1 star to 5 stars) for the course. You can also browse, post, and rate (like / dislike) comments for the course. The overall rating is calculated and displayed based on the individual ratings.
+				<br><br>
+				The page also displays other general information for the course, which allows the platform to not only be a review website, but also a general course information database.
+				<br><br>
+            	Viewing the information will not require you to login. However, you will need to log in to post comments and ratings; you can easily log in using Facebook or Google accounts.
+			</p>
+ 		</div>
+ 		<div id='contact'>
+ 			<h2>Contact Us</h2>
+ 			<p>johnsmithcsc301@gmail.com</p>
+		</div>
+	</div>
+	<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+	<footer>
+   		<ul class="navbar-nav">
+			<li class="active" onclick="window.location = '/course-list'"><a href="#">Home</a ></li>
+   			<li><a href="https://acorn.utoronto.ca/" target="_blank">Acorn</a></li>
+   			<li><a href="https://q.utoronto.ca/" target="_blank">Quercus</a></li>
+   			<li><a href="#">Other</a></li>
+  		</ul>
+ </footer>
+
+</body>
+</html>

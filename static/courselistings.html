@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script href="/js/courselistings"></script>
+		<link rel="stylesheet" type="text/css" href="css/courselistings.css">
+
+		<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="css/courselistings.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script href="/js/courselistingsjquery.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		<script>
+		function myFunction() {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[0];
+		    if (td) {
+		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    } 
+		  }
+		}
+
+		function jsbuttonselected(clicked_id){
+			alert(clicked_id);
+			document.getElementById(clicked_id).style.background-color= "aliceblue";
+		}
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-inverse" style="background-color: white;margin-bottom:0">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <img alt="logo" class="logo-nav" src="images/logo.png" id="logo" style="width:70px">
+			    </div>
+			    <form class="navbar-form navbar-left" id="search_bar">
+			      <div class="input-group">
+			        <input type="text" class="form-control" placeholder="Search">
+			        <div class="input-group-btn">
+			          <button class="btn btn-default" type="submit">
+			            <i class="glyphicon glyphicon-search"></i>
+			          </button>
+			        </div>
+			      </div>
+			    </form>
+			  </div>
+			</nav>
+		</header>
+
+		<div id="search_container">
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for courses..">
+			<ul style="float: right;margin-right:1%;">Sorted by:
+				<button id="quality_button" class="sort_button" onclick=jsbuttonselected(this.id)>Quality</button>
+				<button id="difficulty_button" class="sort_button" onclick=jsbuttonselected(this.id)>Difficulty</button>
+				<button id="alphabetical_order_button" class="sort_button" onclick=jsbuttonselected(this.id)>Alphabetical Order</button>
+			</ul>
+
+
+			<table id="myTable">
+			  <tr class="header">
+			    <th style="width:30%;">Course Name</th>
+			    <th style="width:40%;">Title</th>
+			    <th style="width:30%;">Ratings</th>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">CSC108</a></td>
+			    <td>Introduction to Computer Programming</td>
+			    <td>4.5</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">CSC148</td>
+			    <td>Introduction to Computer Science</td>
+				<td>4</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">MAT135</td>
+			    <td>Calculus I(A)</td>
+			    <td>4</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">MAT235</td>
+			    <td>Multivariable Calculus</td>
+			    <td>3</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">CSC207</td>
+			    <td>Multivariable Calculus</td>
+			    <td>5</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">ENG100</td>
+			    <td>Effective Writing</td>
+			    <td>5</td>
+			  </tr>
+			  <tr>
+			    <td><a href="course.html">CIN105</td>
+			    <td>Introduction to Cinema Studies</td>
+			    <td>2</td>
+			  </tr>
+			</table>
+		</div>	
+
+
+		
+	<footer>
+			<ul class="nav navbar-nav">
+			      <li class="active"><a href="#">About</a></li>
+			      <li><a href="https://acorn.utoronto.ca/" target="_blank">Acorn</a></li>
+			      <li><a href="https://q.utoronto.ca/" target="_blank">Quercus</a></li>
+			      <li><a href="#">Other</a></li>
+			</ul>
+	</footer>
+</html> 

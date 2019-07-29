@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/util.css" type="text/css" media="screen" />
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="{{constants.GOOGLE_CREDENTIALS.client_id}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/course-list.css">
+
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/course-list.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-outer">
+        <div class="container-fluid navbar-inner flex">
+          <div class="navbar-header">
+            <img alt="logo" class="logo-nav clickable" src="images/logo.png" id="logo" style="width:70px" onclick="window.location = 'course-list'">
+          </div>
+          <div class="navbar-header flex-child">
+            <h4 class="navbar-text">Course Copilot</h4>
+          </div>
+          <div class="nav navbar-nav navbar-right navbar-buttons">
+            <a class="btn btn-primary" onclick="window.location.href='about.html'">About</a>
+            <a class="btn btn-primary" href="https://acorn.utoronto.ca/" target="_blank">Acorn</a>
+            <a class="btn btn-primary" href="https://q.utoronto.ca/" target="_blank">Quercus</a>
+            <a class="btn btn-primary" href="#">Other</a>
+            <div id="sign-in-button" class="btn g-signin2" data-onsuccess="onSignIn"></div>
+            <div id="sign-out-button" class="btn btn-primary hidden" onclick="signOut()">
+              Sign Out
+            </div>
+            <img id="user-picture" src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle user-picture hidden" alt="user profile image">
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="search-container">
+      <form class="course-search" onsubmit="search(); return false;">
+        <div class="input-group">
+          <input id="search-input" type="text" class="form-control" placeholder="Search" value="{{query}}" />
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- <ul style="float: right;margin-right:1%;">Sorted by:
+           <button id="quality_button" class="sort_button">Quality</button>
+           <button id="difficulty_button" class="sort_button">Difficulty</button>
+           <button id="alphabetical_order_button" class="sort_button">Alphabetical Order</button>
+           </ul>
+      -->
+
+      <div class="page-select">
+        <span>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMinPage}}" onclick="gotoCoursePage(&#34;page&#34;, {{{ firstPage }}}, {{{ atMinPage }}})">First</button>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMinPage}}" onclick="gotoCoursePage(&#34;page&#34;, {{{ previousPage }}}, {{{ atMinPage }}})">Previous</button>
+          <span class="page-select-text">Page {{currentPage}} / {{totalPages}}</span>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMaxPage}}" onclick="gotoCoursePage(&#34;page&#34;, {{{ nextPage }}}, {{{ atMaxPage }}})">Next</button>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMaxPage}}" onclick="gotoCoursePage(&#34;page&#34;, {{{ totalPages }}}, {{{ atMaxPage }}})">Last</button>
+        </span>
+      </div>
+
+      <table id="myTable">
+        <tr class="table-header acorn-header">
+          <th class="no-wrap">Course Code</th>
+          <th class="no-wrap">Campus</th>
+          <th>Title</th>
+          <th class="center-aligned">Quality</th>
+          <th class="center-aligned">Difficulty</th>
+        </tr>
+        {{#each courses}}
+        <tr class="table-entry" onclick="entryClicked('{{this.courseID}}')">
+          <td class="course-code bold">{{this.code}}</td>
+          <td class="">{{this.campus}}</td>
+          <td>{{this.name}}</td>
+          <td class="center-aligned bold">{{fixed this.qualityRating 1}}</td>
+          <td class="center-aligned bold">{{fixed this.difficultyRating 1}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>  
+
+
+    
+  <footer>
+      <ul class="nav navbar-nav">
+            <li class="active" onclick="window.location.href='about.html'"><a href="#">About</a></li>
+            <li><a href="https://acorn.utoronto.ca/" target="_blank">Acorn</a></li>
+            <li><a href="https://q.utoronto.ca/" target="_blank">Quercus</a></li>
+            <li><a href="#">Other</a></li>
+      </ul>
+  </footer>
+</html> 

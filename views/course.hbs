@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Course page</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="{{constants.GOOGLE_CREDENTIALS.client_id}}">
+    
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/util.css" type="text/css" media="screen" />
+    
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/course.css"/>
+
+		<script type="text/javascript">
+		 var courseID = "{{data.courseID}}"
+		</script>
+
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/course.js"></script>
+
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-outer">
+			  <div class="container-fluid navbar-inner flex">
+			    <div class="navbar-header">
+			      <img alt="logo" class="logo-nav clickable" src="images/logo.png" id="logo" style="width:70px" onclick="window.location = 'course-list'">
+			    </div>
+			    <div class="navbar-header flex-child">
+						<h4 class="navbar-text">Course Copilot</h4>
+			    </div>
+					<div class="nav navbar-nav navbar-right navbar-buttons">
+						<a class="btn btn-primary" onclick="window.location.href='about.html'">About</a>
+						<a class="btn btn-primary" href="https://acorn.utoronto.ca/" target="_blank">Acorn</a>
+						<a class="btn btn-primary" href="https://q.utoronto.ca/" target="_blank">Quercus</a>
+						<a class="btn btn-primary" href="#">Other</a>
+            <div id="sign-in-button" class="btn g-signin2" data-onsuccess="onSignIn"></div>
+            <div id="sign-out-button" class="btn btn-primary hidden" onclick="signOut()">
+              Sign Out
+            </div>
+            <img id="user-picture" src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle user-picture hidden" alt="user profile image">
+					</div>
+			  </div>
+			</nav>
+		</header>
+
+		<div class="container-fluid main">
+			<div class="row info">
+				<h1 style="margin-bottom: 20px;" class="info-name">
+					{{data.code}}: {{data.name}}
+				</h1>
+				<div style="margin-bottom: 30px;">
+					<span class="info-campus">
+						<h3 class="info-campus-text">{{data.campus}}</h3>
+					</span>
+				</div>
+				<div class="flex basic-info">
+					<div class="flex-child">
+						<p class="info-desc">
+							{{data.description}}
+						</p>
+					</div>
+					<div class="info-rating">
+						<div class="main-rating-row flex">
+							<span class="info-rating-text flex-child">Quality: </span>
+							<span class="fa fa-star checked info-rating-text"></span>
+							<span class="info-rating-number">{{fixed data.qualityRating 1}}</span>
+						</div>
+						<div class="main-rating-row flex">
+							<span class="info-rating-text flex-child">Difficulty: </span>
+							<span class="fa fa-star checked info-rating-text"></span>
+							<span class="info-rating-number">{{fixed data.difficultyRating 1}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+			<div class="row">
+				<div class="col-sm-6 course-info">
+					<h1 class="course-name">{{data.code}}: {{data.name}}</h1>
+					<h2 class="course-campus">{{data.campus}}</h2>
+					<h3 class="content">{{data.description}}</h3>
+				</div>
+				<div class="col-sm-6" style="padding: 20px 50px 20px 30px;border-top: 0;border-right: 0;border-bottom: 0;border-style: groove;">
+					<div id="quality_rating">
+						<span class="heading">Quality Rating</span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+						<p>4.1 average based on 254 reviews.</p>
+						<div class="row">
+							<div class="side">
+								<div>5 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-5"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>150</div>
+							</div>
+							<div class="side">
+								<div>4 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-4"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>63</div>
+							</div>
+							<div class="side">
+								<div>3 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-3"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>15</div>
+							</div>
+							<div class="side">
+								<div>2 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-2"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>6</div>
+							</div>
+							<div class="side">
+								<div>1 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-1"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>20</div>
+							</div>
+						</div>
+					</div>
+					<hr style="border:3px solid black">
+					<div id="difficulty_rating">
+						<span class="heading">Difficulty Rating</span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+						<p>4.1 average based on 254 reviews.</p>
+						<div class="row">
+							<div class="side">
+								<div>5 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-5"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>150</div>
+							</div>
+							<div class="side">
+								<div>4 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-4"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>63</div>
+							</div>
+							<div class="side">
+								<div>3 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-3"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>15</div>
+							</div>
+							<div class="side">
+								<div>2 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-2"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>6</div>
+							</div>
+							<div class="side">
+								<div>1 star</div>
+							</div>
+							<div class="middle">
+								<div class="bar-container">
+									<div class="bar-1"></div>
+								</div>
+							</div>
+							<div class="side right">
+								<div>20</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			-->
+
+			<div class="container-fluid main">
+				<div class="comment-container">
+
+					<div class="comment-container-header flex">
+						<div class="flex-child comment-container-header-text">
+							Reviews
+						</div>
+						<div>
+							<button type="button" class="btn btn-primary new-comment-btn" onclick="showNewCommentContainer()">+ New Review</button>
+						</div>
+
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMinPage}}" onclick="gotoCoursePage(&#34;reviewPage&#34;, {{{ firstPage }}}, {{{ atMinPage }}})">First</button>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMinPage}}" onclick="gotoCoursePage(&#34;reviewPage&#34;, {{{ previousPage }}}, {{{ atMinPage }}})">Previous</button>
+          <span class="page-select-text">Page {{currentPage}} / {{totalPages}}</span>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMaxPage}}" onclick="gotoCoursePage(&#34;reviewPage&#34;, {{{ nextPage }}}, {{{ atMaxPage }}})">Next</button>
+          <button class="btn btn-primary page-select-btn {{disabledIfCond atMaxPage}}" onclick="gotoCoursePage(&#34;reviewPage&#34;, {{{ totalPages }}}, {{{ atMaxPage }}})">Last</button>
+
+					</div>
+					<div id="new-comment-container" class="new-comment-container hidden">
+            <h4>New Review</h4>
+            <div class="new-comment-rating-table">
+						  <table>
+							  <tr>
+								  <th class="new-comment-rating-label">Quality:</th>
+								  <th>
+									  <i id="new-comment-q-rating-star-1" class="fa fa-star clickable" onclick="setQualityRating(1)"></i>
+									  <i id="new-comment-q-rating-star-2" class="fa fa-star clickable" onclick="setQualityRating(2)"></i>
+									  <i id="new-comment-q-rating-star-3" class="fa fa-star clickable" onclick="setQualityRating(3)"></i>
+									  <i id="new-comment-q-rating-star-4" class="fa fa-star clickable" onclick="setQualityRating(4)"></i>
+									  <i id="new-comment-q-rating-star-5" class="fa fa-star clickable" onclick="setQualityRating(5)"></i>
+								  </th>
+								  <th class="new-comment-rating-text" id="new-comment-q-rating-text">0</th>
+							  </tr>
+							  <tr>
+								  <th class="new-comment-rating-label">Difficulty:</th>
+								  <th>
+									  <i id="new-comment-d-rating-star-1" class="fa fa-star clickable" onclick="setDifficultyRating(1)"></i>
+									  <i id="new-comment-d-rating-star-2" class="fa fa-star clickable" onclick="setDifficultyRating(2)"></i>
+									  <i id="new-comment-d-rating-star-3" class="fa fa-star clickable" onclick="setDifficultyRating(3)"></i>
+									  <i id="new-comment-d-rating-star-4" class="fa fa-star clickable" onclick="setDifficultyRating(4)"></i>
+									  <i id="new-comment-d-rating-star-5" class="fa fa-star clickable" onclick="setDifficultyRating(5)"></i>
+								  </th>
+								  <th class="new-comment-rating-text" id="new-comment-d-rating-text">0</th>
+							  </tr>
+						  </table>
+            </div>
+						<div class="new-comment-editor-container">
+							<textarea id="new-comment-editor" class="new-comment-editor"></textarea>
+						</div>
+						<div class="comment-container-header flex">
+							<div class="flex-child">
+							</div>
+							<div>
+								<button type="button" class="btn btn-primary" onclick="submitReview()">Submit Review</button>
+							</div>
+						</div>
+					</div>
+					{{#each reviews}}
+					<div class="row comment-row">
+						<div>
+							<div class="panel panel-white post panel-shadow">
+								<div class="post-heading">
+									<div class="pull-left image">
+										<img src="{{#if this.userPicture}}{{this.userPicture}}{{else}}http://bootdey.com/img/Content/user_1.jpg{{/if}}" class="img-circle avatar" alt="user profile image">
+									</div>
+									<div class="pull-left meta">
+										<div class="title h5">
+											<a href="#"><b>{{#if this.userPicture}}{{this.userName}}{{else}}John Smith{{/if}}</b></a>
+										</div>
+										<h6 class="text-muted time">{{formatTime this.time}}</h6>
+									</div>
+									<div class="pull-right stats">
+										<a  class="btn btn-default stat-item" onclick="updateLike({{{json this.reviewID}}})">
+											<i class="fa fa-thumbs-up icon"></i>
+											<span class="stat-number">{{this.likes}}</span>
+										</a>
+										<a  class="btn btn-default stat-item" onclick="updateDisLike({{{json this.reviewID}}})">
+											<i class="fa fa-thumbs-down icon"></i>
+											<span class="stat-number">{{this.dislikes}}</span>
+										</a>
+									</div>
+								</div>
+								<div class="flex">
+									<div class="flex-child">
+										<p class="comment-body">
+											{{this.body}}
+										</p>
+									</div>
+									<div class="comment-rating">
+										<div class="flex">
+											<span class="comment-rating-text flex-child">Quality: </span>
+											<span class="fa fa-star checked comment-rating-text"></span>
+											<span class="comment-rating-number">{{fixed this.qualityRating 0}}</span>
+										</div>
+										<div class="flex">
+											<span class="comment-rating-text flex-child">Difficulty: </span>
+											<span class="fa fa-star checked comment-rating-text"></span>
+											<span class="comment-rating-number">{{fixed this.difficultyRating 0}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+			</div>
+
+			<footer>
+				<ul class="nav navbar-nav">
+          <li class="active" onclick="window.location.href='about.html'"><a href="#">About</a></li>
+          <li><a href="https://acorn.utoronto.ca/" target="_blank">Acorn</a></li>
+          <li><a href="https://q.utoronto.ca/" target="_blank">Quercus</a></li>
+          <li><a href="#">Other</a></li>
+				</ul>
+			</footer>
+	</body>
+</html>

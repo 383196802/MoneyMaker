@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Course page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/course_page.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="background-color: white;margin-bottom:0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img alt="logo" class="logo-nav" src="images/logo.png" id="logo" style="width:70px;">
+    </div>
+    <form class="navbar-form navbar-left" id="search_bar">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6" style="">
+      <div id="course_name" class="course_desc row">
+        <p class="title0">Course Title: </p>
+        <p class="content">CSC108H1: Introduction to Computer Programming</p>
+      </div>
+      <div id ="course_desc" class="course_desc row">
+        <p class="title0">Course description: </p>
+        <p class="content">Programming in a language such as Python. Elementary data types, lists, maps.  Program structure: control flow, functions, classes, objects, methods. Algorithms and problem solving. Searching, sorting, and complexity. Unit testing. No prior programming experience required.</p>
+      </div>
+    </div>
+    <div class="col-sm-6" style="padding: 20px 50px 20px 30px;border-top: 0;border-right: 0;border-bottom: 0;border-style: groove;">
+      <div id="quality_rating">
+        <span class="heading">Quality Rating</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p>4.1 average based on 254 reviews.</p>
+        <!-- <hr style="border:3px solid #f1f1f1"> -->
+        <div class="row">
+        <div class="side">
+          <div>5 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-5"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>150</div>
+        </div>
+        <div class="side">
+          <div>4 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-4"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>63</div>
+        </div>
+        <div class="side">
+          <div>3 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-3"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>15</div>
+        </div>
+        <div class="side">
+          <div>2 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-2"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>6</div>
+        </div>
+        <div class="side">
+          <div>1 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-1"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>20</div>
+        </div>
+        </div>
+      </div>
+      <hr style="border:3px solid black">
+      <div id="difficulty_rating">
+        <span class="heading">Difficulty Rating</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p>4.1 average based on 254 reviews.</p>
+        <!-- <hr style="border:3px solid #f1f1f1"> -->
+        <div class="row">
+        <div class="side">
+          <div>5 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-5"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>150</div>
+        </div>
+        <div class="side">
+          <div>4 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-4"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>63</div>
+        </div>
+        <div class="side">
+          <div>3 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-3"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>15</div>
+        </div>
+        <div class="side">
+          <div>2 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-2"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>6</div>
+        </div>
+        <div class="side">
+          <div>1 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-1"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>20</div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12" style="background-color: #f6f6f6">
+     <p class="title0">Comments: </p>
+      <div class="container">
+    <div class="row">
+        <div class="col-sm-8" style="margin-left: 10%">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    <div class="stats">
+                        <a  class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>2
+                        </a>
+                        <a  class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-down icon"></i>12
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8" style="margin-left: 10%">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    <div class="stats">
+                        <a  class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>2
+                        </a>
+                        <a  class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-down icon"></i>12
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+      <ul class="nav navbar-nav">
+            <li class="active"><a href="#">About</a></li>
+            <li><a href="https://acorn.utoronto.ca/" target="_blank">Acorn</a></li>
+            <li><a href="https://q.utoronto.ca/" target="_blank">Quercus</a></li>
+            <li><a href="#">Other</a></li>
+      </ul>
+  </footer>
+</body>
+</html>
